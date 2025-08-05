@@ -1,42 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* HaruCode Design System - Tech-futuristic with glassmorphism */
 
 @layer base {
   :root {
+    /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 210 100% 7%;
+    
+    /* HaruCode Purple Theme */
+    --primary: 267 93% 36%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 267 93% 96%;
+    --primary-glow: 267 93% 50%;
+    
+    /* Glass Effect Colors */
+    --glass: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    --glass-overlay: 267 93% 36%;
+    
+    /* Neutral System */
+    --secondary: 210 100% 7%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card-foreground: 210 100% 7%;
+    --card-glass: 0 0% 100%;
+    
+    /* Interactive Elements */
+    --accent: 267 93% 96%;
+    --accent-foreground: 267 93% 36%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 267 93% 36%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    
+    /* Design Tokens */
+    --radius: 12px;
+    --glass-blur: 8px;
+    --glass-opacity: 0.05;
+    --transition: all 250ms ease-in-out;
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px rgba(106, 13, 173, 0.1);
+    --shadow-card: 0 4px 24px rgba(106, 13, 173, 0.08);
+    --shadow-elegant: 0 10px 40px rgba(106, 13, 173, 0.15);
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,12 +114,91 @@ All colors MUST be HSL.
   }
 }
 
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
   }
+}
+
+/* Component Classes for HaruCode */
+@layer components {
+  /* Glass Effects */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-lg border border-white/30 rounded-xl;
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-overlay {
+    @apply bg-white/5 backdrop-blur-lg;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-primary-glow hover:shadow-elegant transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-secondary/90;
+  }
+  
+  .btn-glass {
+    @apply glass-card text-primary px-8 py-3 font-medium transition-all duration-300 hover:bg-white/10 hover:scale-105;
+  }
+  
+  /* Hero Section */
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(239, 231, 251, 0.3) 100%);
+  }
+  
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-elegant;
+  }
+  
+  /* Animation Classes */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-500 ease-out;
+  }
+  
+  .fade-in-up.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  /* WhatsApp Button */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 bg-primary text-primary-foreground p-4 rounded-full shadow-elegant hover:scale-110 transition-all duration-300;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(106, 13, 173, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(106, 13, 173, 0.6); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
