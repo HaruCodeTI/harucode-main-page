@@ -75,10 +75,10 @@ const Home = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 pb-16 hero-gradient relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-primary-light/5 to-transparent"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-8">
               {/* Badge */}
               <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
