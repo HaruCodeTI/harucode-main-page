@@ -80,6 +80,12 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
+              {/* Badge */}
+              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium fade-in-up" data-animate>
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
+                <span>Inovação Tecnológica</span>
+              </div>
+
               <div className="space-y-6 fade-in-up" data-animate id="hero-text">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                   Tecnologia que{' '}
@@ -99,22 +105,73 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center justify-center space-x-2"
                 >
-                  <span>Solicitar proposta</span>
+                  <span>Solicitar Proposta</span>
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <Link to="/servicos" className="btn-glass inline-flex items-center justify-center">
-                  Ver serviços
+                  Conhecer Serviços
                 </Link>
+              </div>
+
+              {/* Statistics */}
+              <div className="grid grid-cols-3 gap-8 pt-8 fade-in-up" data-animate>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">50+</div>
+                  <div className="text-sm text-muted-foreground">Projetos Entregues</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Satisfação Cliente</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">24h</div>
+                  <div className="text-sm text-muted-foreground">Tempo Resposta</div>
+                </div>
               </div>
             </div>
             
             <div className="relative fade-in-up" data-animate>
+              {/* Dashboard Mockup */}
               <div className="glass-card p-8 float-animation">
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
-                  alt="Dashboard tecnológico"
-                  className="rounded-lg w-full"
-                />
+                <div className="bg-white rounded-lg shadow-elegant p-6 space-y-6">
+                  {/* Header */}
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-gray-800">HaruCode Dashboard</h3>
+                    <div className="flex space-x-1">
+                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Chart Area */}
+                  <div className="h-32 bg-gradient-to-br from-purple-100 to-purple-300 rounded-lg relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="grid grid-cols-4 gap-2">
+                        {[40, 60, 80, 50].map((height, i) => (
+                          <div
+                            key={i}
+                            className="bg-white/30 rounded-sm"
+                            style={{ height: `${height}%` }}
+                          ></div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Metrics */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="text-sm text-gray-600">Automação</div>
+                      <div className="text-2xl font-bold text-green-600">+89%</div>
+                    </div>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="text-sm text-gray-600">Produtividade</div>
+                      <div className="text-2xl font-bold text-blue-600">+156%</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
