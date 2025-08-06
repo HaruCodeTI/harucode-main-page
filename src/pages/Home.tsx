@@ -75,7 +75,7 @@ const Home = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-20 min-h-screen flex items-center hero-gradient relative overflow-hidden">
+      <section className="pt-20 pb-16 hero-gradient relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-primary-light/5 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -87,12 +87,12 @@ const Home = () => {
               </div>
 
               <div className="space-y-6 fade-in-up" data-animate id="hero-text">
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Tecnologia que{' '}
                   <span className="text-gradient">acelera</span>{' '}
                   o crescimento do seu negócio
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   Soluções customizadas em software, automação e IA que modernizam 
                   processos e impulsionam resultados.
                 </p>
@@ -114,7 +114,7 @@ const Home = () => {
               </div>
 
               {/* Statistics */}
-              <div className="grid grid-cols-3 gap-8 pt-8 fade-in-up" data-animate>
+              <div className="grid grid-cols-3 gap-8 pt-4 fade-in-up" data-animate>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">50+</div>
                   <div className="text-sm text-muted-foreground">Projetos Entregues</div>
@@ -132,8 +132,8 @@ const Home = () => {
             
             <div className="relative fade-in-up" data-animate>
               {/* Dashboard Mockup */}
-              <div className="glass-card p-8 float-animation">
-                <div className="bg-white rounded-lg shadow-elegant p-6 space-y-6">
+              <div className="glass-card p-6 float-animation">
+                <div className="bg-white rounded-lg shadow-elegant p-4 space-y-4">
                   {/* Header */}
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold text-gray-800">HaruCode Dashboard</h3>
@@ -145,9 +145,9 @@ const Home = () => {
                   </div>
                   
                   {/* Chart Area */}
-                  <div className="h-32 bg-gradient-to-br from-purple-100 to-purple-300 rounded-lg relative overflow-hidden">
+                  <div className="h-24 bg-gradient-to-br from-purple-100 to-purple-300 rounded-lg relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute bottom-2 left-2 right-2">
                       <div className="grid grid-cols-4 gap-2">
                         {[40, 60, 80, 50].map((height, i) => (
                           <div
@@ -162,11 +162,11 @@ const Home = () => {
                   
                   {/* Metrics */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="bg-gray-50 p-3 rounded-lg">
                       <div className="text-sm text-gray-600">Automação</div>
                       <div className="text-2xl font-bold text-green-600">+89%</div>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="bg-gray-50 p-3 rounded-lg">
                       <div className="text-sm text-gray-600">Produtividade</div>
                       <div className="text-2xl font-bold text-blue-600">+156%</div>
                     </div>
