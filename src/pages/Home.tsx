@@ -81,12 +81,12 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium fade-in-up" data-animate>
+              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
                 <span className="w-2 h-2 bg-primary rounded-full"></span>
                 <span>Inovação Tecnológica</span>
               </div>
 
-              <div className="space-y-6 fade-in-up" data-animate id="hero-text">
+              <div className="space-y-6">
                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                   Tecnologia que{' '}
                   <span className="text-gradient">acelera</span>{' '}
@@ -98,7 +98,7 @@ const Home = () => {
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 fade-in-up" data-animate>
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://wa.me/5511999999999"
                   target="_blank"
@@ -114,7 +114,7 @@ const Home = () => {
               </div>
 
               {/* Statistics */}
-              <div className="grid grid-cols-3 gap-8 pt-4 fade-in-up" data-animate>
+              <div className="grid grid-cols-3 gap-8 pt-4">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary">50+</div>
                   <div className="text-sm text-muted-foreground">Projetos Entregues</div>
@@ -130,7 +130,7 @@ const Home = () => {
               </div>
             </div>
             
-            <div className="relative fade-in-up" data-animate>
+            <div className="relative">
               {/* Dashboard Mockup */}
               <div className="glass-card p-6 float-animation">
                 <div className="bg-white rounded-lg shadow-elegant p-4 space-y-4">
