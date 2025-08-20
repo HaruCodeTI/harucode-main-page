@@ -48,6 +48,11 @@ const Home = () => {
 
   const blogPosts = [
     {
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=225&fit=crop",
+      title: "ERP de Restaurante: quando a planilha vira prejuízo",
+      excerpt: "Sinais de que sua operação passou do ponto e precisa de ERP..."
+    },
+    {
       image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=400&h=225&fit=crop",
       title: "O Futuro da Automação nas Empresas",
       excerpt: "Como a IA está revolucionando processos empresariais e aumentando a produtividade..."
@@ -56,11 +61,6 @@ const Home = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop",
       title: "Desenvolvimento Web: Tendências 2024",
       excerpt: "As principais tecnologias e frameworks que estão moldando o desenvolvimento web..."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=225&fit=crop",
-      title: "Machine Learning para Pequenas Empresas",
-      excerpt: "Como implementar soluções de IA de forma acessível e eficiente em pequenos negócios..."
     }
   ];
 
@@ -182,7 +182,7 @@ const Home = () => {
           </div>
           
           {/* Grade 2x2 */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Coluna Esquerda - Missão, Visão e Valores */}
             <div className="space-y-8">
               {/* Missão */}
@@ -231,11 +231,11 @@ const Home = () => {
             </div>
             
             {/* Coluna Direita - Imagem */}
-            <div className={`fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
+            <div className={`fade-in-up flex items-center justify-center ${visibleSections.includes('about') ? 'visible' : ''}`}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                 alt="Equipe trabalhando"
-                className="w-full h-auto rounded-xl shadow-sm object-cover"
+                className="w-full h-auto rounded-xl shadow-sm object-cover max-w-lg"
               />
             </div>
           </div>

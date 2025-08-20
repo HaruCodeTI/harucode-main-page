@@ -10,86 +10,63 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('todos');
 
+  // Função para gerar URL do post baseada no título
+  const getPostUrl = (post: any) => {
+    if (post.id === 1) {
+      return '/blog/erp-restaurante-planilha-prejuizo';
+    }
+    if (post.id === 2) {
+      return '/blog/controle-pecas-estoque';
+    }
+    if (post.id === 3) {
+      return '/blog/site-que-gera-leads-checklist';
+    }
+    // Para outros posts, redireciona para o blog geral
+    return '/blog';
+  };
+
   const categories = [
     { id: 'todos', label: 'Todos' },
     { id: 'automacao', label: 'Automação' },
-    { id: 'desenvolvimento', label: 'Desenvolvimento' },
-    { id: 'ia', label: 'Inteligência Artificial' },
-    { id: 'tendencias', label: 'Tendências' }
+    { id: 'marketing', label: 'Marketing' }
   ];
 
   const posts = [
     {
       id: 1,
-      title: "O Futuro da Automação nas Empresas",
-      excerpt: "Como a inteligência artificial está revolucionando processos empresariais e aumentando a produtividade de forma exponencial. Descubra as principais tendências...",
-      content: "A automação está transformando a maneira como as empresas operam...",
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop",
-      author: "Ana Silva",
-      date: "15 de Março, 2024",
+      title: "ERP de Restaurante: quando a planilha vira prejuízo",
+      excerpt: "Sinais de que sua operação passou do ponto e precisa de ERP. Descubra como planilhas e WhatsApp estão comprometendo sua margem...",
+      content: "Se o fechamento do seu dia depende de **planilha + WhatsApp**, sua margem já está vazando. Três sinais claros: 1) **Quebra de estoque** recorrente. Sem mínimo/máximo, você compra na pressa e vende sem lucro. 2) **Conciliação confusa** entre PIX, cartão e apps. DRE vira adivinhação. 3) **Retrabalho**: pedido passa por 3 telas antes de chegar na cozinha. Um **ERP de verdade** conecta vendas, estoque, compras e financeiro. Resultado: CMV controlado, compras por dados, e **painel diário** no celular. Quer enxergar sua operação em tempo real (sem drama)? **Fale com a HaruCode**.",
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop",
+      author: "Equipe HaruCode",
+      date: "20 de Agosto, 2025",
       category: "automacao",
-      tags: ["Automação", "IA", "Produtividade"],
-      readTime: "5 min"
+      tags: ["Restaurante", "ERP", "Gestão", "Custos"],
+      readTime: "2 min"
     },
     {
       id: 2,
-      title: "Desenvolvimento Web: Tendências 2024",
-      excerpt: "As principais tecnologias e frameworks que estão moldando o desenvolvimento web moderno. React, Vue, Angular e as novas ferramentas que chegaram...",
-      content: "O desenvolvimento web está em constante evolução...",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      author: "Carlos Mendes",
-      date: "10 de Março, 2024",
-      category: "desenvolvimento",
-      tags: ["Web", "React", "Tendências"],
-      readTime: "7 min"
+      title: "Controle de peças: pare de perder dinheiro no estoque",
+      excerpt: "Rastreie entradas/saídas, lote e custo para lucro real por OS. Descubra como organizar seu estoque em uma semana...",
+      content: "Sem sistema, o estoque mente. Você entrega o serviço e a **arruela sumiu**. Fundamentos que resolvem: **SKU + localização** (estante/caixa). **Custo médio automático** para precificar sem chute. **Vínculo à OS**: peça só sai com número de ordem. **Requisição por técnico** registrada (quem tirou, quando e por quê). Resultado: **margem real por serviço**, compras no timing certo e zero sumiço. Quer organizar seu estoque em uma semana? **Chama a HaruCode**.",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      author: "Equipe HaruCode",
+      date: "20 de Agosto, 2025",
+      category: "automacao",
+      tags: ["Assistência Técnica", "Peças", "Estoque"],
+      readTime: "2 min"
     },
     {
       id: 3,
-      title: "Machine Learning para Pequenas Empresas",
-      excerpt: "Como implementar soluções de inteligência artificial de forma acessível e eficiente em pequenos negócios. Casos práticos e resultados reais...",
-      content: "O machine learning não é exclusivo para grandes corporações...",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop",
-      author: "Marina Costa",
-      date: "5 de Março, 2024",
-      category: "ia",
-      tags: ["ML", "Pequenas Empresas", "IA"],
-      readTime: "6 min"
-    },
-    {
-      id: 4,
-      title: "Segurança em Aplicações Web",
-      excerpt: "Melhores práticas para proteger suas aplicações web contra ameaças modernas. HTTPS, autenticação, autorização e muito mais...",
-      content: "A segurança deve ser uma prioridade em qualquer projeto...",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
-      author: "Pedro Santos",
-      date: "28 de Fevereiro, 2024",
-      category: "desenvolvimento",
-      tags: ["Segurança", "Web", "HTTPS"],
-      readTime: "8 min"
-    },
-    {
-      id: 5,
-      title: "ROI em Projetos de Automação",
-      excerpt: "Como calcular e maximizar o retorno sobre investimento em projetos de automação empresarial. Métricas, KPIs e casos de sucesso...",
-      content: "O retorno sobre investimento é fundamental para justificar projetos...",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      author: "Ana Silva",
-      date: "20 de Fevereiro, 2024",
-      category: "automacao",
-      tags: ["ROI", "Automação", "KPIs"],
-      readTime: "4 min"
-    },
-    {
-      id: 6,
-      title: "Chatbots Inteligentes com IA",
-      excerpt: "Desenvolvendo chatbots que realmente entendem e ajudam os usuários. Natural Language Processing, integração com APIs e personalização avançada...",
-      content: "Os chatbots evoluíram muito além de respostas pré-programadas...",
-      image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop",
-      author: "Carlos Mendes",
-      date: "15 de Fevereiro, 2024",
-      category: "ia",
-      tags: ["Chatbots", "NLP", "Atendimento"],
-      readTime: "6 min"
+      title: "7 itens de um site que realmente gera leads",
+      excerpt: "Checklist direto para transformar visitas em orçamentos. Descubra como otimizar seu site para conversões...",
+      content: "Seu site é bonito, mas converte? Foque no essencial: 1) **Proposta clara no topo** (+ botão). 2) **Prova social**: 3 depoimentos com nome e ramo. 3) **Portfólio enxuto**: 6 cases com resultado, não só layout. 4) **CTA fixo** (WhatsApp) no mobile. 5) **Página de preços** com faixas (sem esconder o jogo). 6) **Velocidade**: Lighthouse verde. 7) **Formulário curto**: nome, telefone, necessidade e prazo. Quer esse checklist aplicado ao seu site e um relatório em 24h? **Bora fazer.**",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      author: "Equipe HaruCode",
+      date: "20 de Agosto, 2025",
+      category: "marketing",
+      tags: ["Sites", "Conversão", "Marketing"],
+      readTime: "2 min"
     }
   ];
 
@@ -128,10 +105,10 @@ const Blog = () => {
                 placeholder="Buscar artigos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               />
             </div>
-
+            
             {/* Categories */}
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
@@ -219,10 +196,13 @@ const Blog = () => {
                             ))}
                           </div>
                           
-                          <button className="text-primary font-medium hover:underline inline-flex items-center space-x-1">
+                          <Link 
+                            to={getPostUrl(post)}
+                            className="text-primary font-medium hover:underline inline-flex items-center space-x-1"
+                          >
                             <span>Ler mais</span>
                             <ArrowRight className="w-4 h-4" />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </article>
@@ -237,7 +217,11 @@ const Blog = () => {
                   <h3 className="text-lg font-semibold mb-4">Artigos Populares</h3>
                   <div className="space-y-4">
                     {posts.slice(0, 3).map((post) => (
-                      <div key={post.id} className="flex space-x-3 group cursor-pointer">
+                      <Link 
+                        key={post.id} 
+                        to={getPostUrl(post)}
+                        className="flex space-x-3 group cursor-pointer"
+                      >
                         <img
                           src={post.image}
                           alt={post.title}
@@ -249,7 +233,7 @@ const Blog = () => {
                           </h4>
                           <p className="text-xs text-muted-foreground">{post.date}</p>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

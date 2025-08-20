@@ -19,4 +19,7 @@ export default defineConfig({
       external: [],
     },
   },
+  preview: {
+    port: 8080,
+  },
 });
