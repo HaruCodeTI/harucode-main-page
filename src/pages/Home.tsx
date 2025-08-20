@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Code, Brain, Users, Target, Heart, Lightbulb, Award, Eye } from 'lucide-react';
+import { ArrowRight, Zap, Code, Brain, Users, Target, Lightbulb, Award, Eye } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -66,7 +66,7 @@ const Home = () => {
 
   const values = [
     { icon: <Lightbulb className="w-6 h-6" />, text: "Inovação" },
-    { icon: <Heart className="w-6 h-6" />, text: "Ética" },
+    { icon: <img src="/aba.svg" alt="Ética" className="w-6 h-6" />, text: "Ética" },
     { icon: <Award className="w-6 h-6" />, text: "Excelência" },
     { icon: <Brain className="w-6 h-6" />, text: "Criatividade" },
     { icon: <Users className="w-6 h-6" />, text: "Proximidade" }
@@ -212,7 +212,7 @@ const Home = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                       { icon: <Lightbulb className="w-5 h-5" />, text: "Inovação", description: "testamos, medimos e escalamos o que funciona." },
-                      { icon: <Heart className="w-5 h-5" />, text: "Ética", description: "decisões e dados com transparência." },
+                      { icon: <img src="/aba.svg" alt="Ética" className="w-5 h-5" />, text: "Ética", description: "decisões e dados com transparência." },
                       { icon: <Award className="w-5 h-5" />, text: "Excelência", description: "qualidade previsível e atenção aos detalhes." },
                       { icon: <Brain className="w-5 h-5" />, text: "Criatividade", description: "soluções simples para problemas complexos." },
                       { icon: <Users className="w-5 h-5" />, text: "Proximidade", description: "comunicação direta, sem jargão." }

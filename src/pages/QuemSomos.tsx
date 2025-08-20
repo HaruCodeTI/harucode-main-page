@@ -1,4 +1,4 @@
-import { Users, Target, Heart, Lightbulb, Award, Eye, ArrowRight } from 'lucide-react';
+import { Users, Target, Lightbulb, Award, Eye, ArrowRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -12,7 +12,7 @@ const QuemSomos = () => {
       description: "Buscamos constantemente novas tecnologias e metodologias para entregar soluções únicas."
     },
     {
-      icon: <Heart className="w-8 h-8" />,
+      icon: <img src="/aba.svg" alt="Ética" className="w-8 h-8" />,
       title: "Ética",
       description: "Transparência e honestidade em todas as nossas relações e processos."
     },
@@ -77,7 +77,7 @@ const QuemSomos = () => {
             
             <div className="text-center space-y-4">
               <div className="w-16 h-16 bg-primary-light rounded-xl flex items-center justify-center mx-auto">
-                <Heart className="w-8 h-8 text-primary" />
+                <img src="/aba.svg" alt="Propósito" className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-2xl font-bold">Propósito</h3>
               <p className="text-muted-foreground text-lg leading-relaxed">
