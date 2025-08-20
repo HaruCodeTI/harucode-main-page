@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { config } from '../lib/config';
 
 const Footer = () => {
   return (
@@ -8,11 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">H</span>
-              </div>
-              <span className="text-2xl font-bold text-white">HaruCode</span>
+            <div className="flex items-center">
+              <img 
+                src="/10.svg" 
+                alt="HaruCode Logo" 
+                className="h-14 w-auto opacity-90 filter brightness-110"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed">
               Transformamos ideias em soluções tecnológicas que impulsionam o crescimento 
@@ -27,9 +29,6 @@ const Footer = () => {
               </a>
               <a href="#" className="text-gray-300 hover:text-primary transition-colors">
                 <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Twitter size={20} />
               </a>
             </div>
           </div>
@@ -82,19 +81,19 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <MapPin size={18} className="text-primary" />
                 <span className="text-gray-300">
-                  São Paulo, SP - Brasil
+                  Campo Grande, MS - Brasil
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-primary" />
                 <span className="text-gray-300">
-                  +55 (11) 99999-9999
+                  {config.whatsapp.formatted}
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-primary" />
                 <span className="text-gray-300">
-                  hello@harucode.com
+                  {config.company.email}
                 </span>
               </div>
             </div>
@@ -103,7 +102,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-12 pt-8 text-center">
           <p className="text-gray-300">
-            © 2024 HaruCode. Todos os direitos reservados.
+            © 2025 HaruCode. Todos os direitos reservados.
           </p>
         </div>
       </div>

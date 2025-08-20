@@ -13,10 +13,10 @@
     --foreground: 210 100% 7%;
     
     /* HaruCode Purple Theme */
-    --primary: 267 93% 36%;
+    --primary: 267 100% 66%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 267 93% 96%;
-    --primary-glow: 267 93% 50%;
+    --primary-light: 267 100% 96%;
+    --primary-glow: 267 100% 70%;
     
     /* Glass Effect Colors */
     --glass: 0 0% 100%;
@@ -54,9 +54,9 @@
     --transition: all 250ms ease-in-out;
     
     /* Shadows */
-    --shadow-glass: 0 8px 32px rgba(106, 13, 173, 0.1);
-    --shadow-card: 0 4px 24px rgba(106, 13, 173, 0.08);
-    --shadow-elegant: 0 10px 40px rgba(106, 13, 173, 0.15);
+    --shadow-glass: 0 8px 32px rgba(140, 82, 255, 0.1);
+    --shadow-card: 0 4px 24px rgba(140, 82, 255, 0.08);
+    --shadow-elegant: 0 10px 40px rgba(140, 82, 255, 0.15);
 
     --sidebar-background: 0 0% 98%;
 

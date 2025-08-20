@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { config } from '../lib/config';
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -292,8 +293,8 @@ const Contato = () => {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Endereço</h3>
                     <p className="text-muted-foreground">
-                      Av. Paulista, 1000 - Bela Vista<br />
-                      São Paulo, SP - CEP: 01310-100<br />
+                      Rua Geraldo Agostinho Ramos, 90 - Jardim Paulista<br />
+                      Campo Grande, MS - CEP: 79050-080<br />
                       Brasil
                     </p>
                   </div>
@@ -306,8 +307,8 @@ const Contato = () => {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Telefone</h3>
                     <p className="text-muted-foreground">
-                      +55 (11) 99999-9999<br />
-                      Segunda a Sexta: 8h às 18h
+                      +55 (67) 99610-1030<br />
+                      Segunda a Sexta: 9h às 19h
                     </p>
                   </div>
                 </div>
@@ -319,7 +320,7 @@ const Contato = () => {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Email</h3>
                     <p className="text-muted-foreground">
-                      hello@harucode.com<br />
+                      contato.harucode@gmail.com<br />
                       Resposta em até 24h
                     </p>
                   </div>
@@ -332,7 +333,7 @@ const Contato = () => {
                   <div className="space-y-1">
                     <h3 className="font-semibold">Horário de Funcionamento</h3>
                     <p className="text-muted-foreground">
-                      Segunda a Sexta: 8h às 18h<br />
+                      Segunda a Sexta: 9h às 19h<br />
                       Sábado: 9h às 13h<br />
                       Domingo: Fechado
                     </p>
@@ -347,12 +348,12 @@ const Contato = () => {
                   Fale diretamente conosco para um atendimento mais rápido e personalizado.
                 </p>
                 <a
-                  href="https://wa.me/5511999999999"
+                  href={config.whatsapp.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full inline-flex items-center justify-center space-x-2"
+                  className="btn-primary inline-flex items-center space-x-2 text-lg px-12 py-4"
                 >
-                  <span>Abrir WhatsApp</span>
+                  <span>Converse no WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -366,13 +367,13 @@ const Contato = () => {
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-4xl font-bold">Nossa Localização</h2>
             <p className="text-xl text-muted-foreground">
-              Venha nos visitar em nosso escritório em São Paulo
+              Venha nos visitar em nosso escritório em Campo Grande
             </p>
           </div>
 
           <div className="glass-card overflow-hidden rounded-xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197627988862!2d-46.65836932371736!3d-23.561414678767546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.5305171778755!2d-54.611043800000004!3d-20.4844673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e600097824d1%3A0xf436d6fd153065b8!2sR.%20Geraldo%20Agostinho%20Ramos%2C%2090%20-%20Jardim%20Paulista%2C%20Campo%20Grande%20-%20MS%2C%2079050-080!5e0!3m2!1sen!2sbr!4v1755637101763!5m2!1sen!2sbr"
               width="100%"
               height="400"
               style={{ border: 0 }}

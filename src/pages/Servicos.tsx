@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { Zap, Code, Brain, Database, Cog, BarChart, ArrowRight, CheckCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Zap, Code, Brain, Users, Target, CheckCircle, Star } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { config } from '../lib/config';
 
 const Servicos = () => {
   const [activeService, setActiveService] = useState(0);
@@ -105,9 +107,9 @@ const Servicos = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
               {/* Service Info */}
-              <div className="space-y-8">
+              <div className="space-y-8 flex flex-col">
                 <div className="space-y-4">
                   <div className="w-20 h-20 bg-primary-light rounded-xl flex items-center justify-center">
                     <div className="text-primary">{services[activeService].icon}</div>
@@ -129,10 +131,13 @@ const Servicos = () => {
                     ))}
                   </div>
                 </div>
+                
+                {/* Spacer para alinhar com o bloco de benefícios */}
+                <div className="flex-1"></div>
               </div>
 
               {/* Benefits & CTA */}
-              <div className="glass-card p-8 space-y-8">
+              <div className="glass-card p-8 space-y-8 flex flex-col">
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold">Benefícios:</h3>
                   <div className="space-y-3">
@@ -145,18 +150,18 @@ const Servicos = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-6 border-t border-gray-200">
+                <div className="space-y-4 pt-6 border-t border-gray-200 mt-auto">
                   <h4 className="font-semibold">Pronto para começar?</h4>
                   <p className="text-sm text-muted-foreground">
                     Vamos conversar sobre como podemos ajudar seu negócio a crescer
                   </p>
                   <a
-                    href="https://wa.me/5511999999999"
+                    href={config.whatsapp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary w-full inline-flex items-center justify-center space-x-2"
+                    className="btn-primary inline-flex items-center justify-center space-x-2"
                   >
-                    <span>Solicitar proposta</span>
+                    <span>Solicitar Proposta</span>
                     <ArrowRight className="w-5 h-5" />
                   </a>
                 </div>
@@ -207,13 +212,13 @@ const Servicos = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/5511999999999"
+                href={config.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center space-x-2"
+                className="btn-primary inline-flex items-center justify-center space-x-2"
               >
-                <span>Falar no WhatsApp</span>
-                <ArrowRight className="w-5 h-5" />
+                <span>Converse no WhatsApp</span>
+                <ArrowRight className="w-6 h-6" />
               </a>
               <a
                 href="/contato"
@@ -226,20 +231,28 @@ const Servicos = () => {
         </div>
       </section>
 
-      {/* Fixed CTA Sidebar */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
-        <div className="glass-card p-4 space-y-4 w-64">
-          <h4 className="font-semibold text-center">Precisa de ajuda?</h4>
-          <a
-            href="https://wa.me/5511999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary w-full text-center block"
-          >
-            Solicitar proposta
-          </a>
+      {/* CTA Section */}
+      <section className="py-20 bg-accent">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="glass-card p-8 space-y-6 max-w-md mx-auto">
+              <h3 className="text-2xl font-bold">Precisa de ajuda?</h3>
+              <p className="text-muted-foreground">
+                Nossa equipe está pronta para ajudar você a transformar seu negócio
+              </p>
+              <a
+                href={config.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center justify-center space-x-2 w-full"
+              >
+                <span>Solicitar proposta</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       <Footer />
       <WhatsAppButton />

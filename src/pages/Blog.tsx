@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Search, Calendar, User, ArrowRight, Tag } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Calendar, User, Clock, Search, Filter } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { config } from '../lib/config';
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -211,7 +213,7 @@ const Blog = () => {
                                 key={tagIndex}
                                 className="inline-flex items-center space-x-1 text-xs bg-primary-light text-primary px-2 py-1 rounded-full"
                               >
-                                <Tag className="w-3 h-3" />
+                                <Filter className="w-3 h-3" />
                                 <span>{tag}</span>
                               </span>
                             ))}
@@ -302,13 +304,13 @@ const Blog = () => {
               Entre em contato conosco. Adoraríamos ouvir sua opinião!
             </p>
             <a
-              href="https://wa.me/5511999999999"
+              href={config.whatsapp.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center space-x-2"
+              className="btn-primary inline-flex items-center space-x-2 text-lg px-12 py-4"
             >
-              <span>Falar conosco</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>Converse no WhatsApp</span>
+              <ArrowRight className="w-6 h-6" />
             </a>
           </div>
         </div>

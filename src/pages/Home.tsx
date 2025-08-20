@@ -4,6 +4,8 @@ import { ArrowRight, Zap, Code, Brain, Users, Target, Heart, Lightbulb, Award, E
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import { config } from '../lib/config';
+import Squares from '../components/ui/squares';
 
 const Home = () => {
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
@@ -75,32 +77,39 @@ const Home = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-16 md:pb-20 hero-gradient relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-primary-light/5 to-transparent"></div>
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 bg-secondary relative overflow-hidden">
+        <Squares 
+          speed={0.5} 
+          squareSize={100}
+          direction='left'
+          borderColor='#848EFE'
+          hoverFillColor='#FFFFFF'
+          className="absolute inset-0 opacity-20"
+        />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-8">
               {/* Badge */}
-              <div className="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium">
-                <span className="w-2 h-2 bg-primary rounded-full"></span>
+              <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white text-sm font-medium border border-white/30">
+                <span className="w-2 h-2 bg-white rounded-full"></span>
                 <span>Inovação Tecnológica</span>
               </div>
 
               <div className="space-y-6">
-                <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white">
                   Tecnologia que{' '}
                   <span className="text-gradient">acelera</span>{' '}
                   o crescimento do seu negócio
                 </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-gray-100 leading-relaxed max-w-3xl mx-auto">
                   Soluções customizadas em software, automação e IA que modernizam 
                   processos e impulsionam resultados.
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://wa.me/5511999999999"
+                  href={config.whatsapp.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center justify-center space-x-2"
@@ -108,69 +117,24 @@ const Home = () => {
                   <span>Solicitar Proposta</span>
                   <ArrowRight className="w-5 h-5" />
                 </a>
-                <Link to="/servicos" className="btn-glass inline-flex items-center justify-center">
+                <Link to="/servicos" className="bg-white/20 text-white px-8 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-white/30 hover:scale-105 inline-flex items-center justify-center">
                   Conhecer Serviços
                 </Link>
               </div>
 
               {/* Statistics */}
-              <div className="grid grid-cols-3 gap-8 pt-4">
+              <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">50+</div>
-                  <div className="text-sm text-muted-foreground">Projetos Entregues</div>
+                  <div className="text-3xl font-bold text-white">50+</div>
+                  <div className="text-sm text-gray-200">Projetos Entregues</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">98%</div>
-                  <div className="text-sm text-muted-foreground">Satisfação Cliente</div>
+                  <div className="text-3xl font-bold text-white">98%</div>
+                  <div className="text-sm text-gray-200">Satisfação Cliente</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">24h</div>
-                  <div className="text-sm text-muted-foreground">Tempo Resposta</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              {/* Dashboard Mockup */}
-              <div className="glass-card p-6 float-animation">
-                <div className="bg-white rounded-lg shadow-elegant p-4 space-y-4">
-                  {/* Header */}
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-800">HaruCode Dashboard</h3>
-                    <div className="flex space-x-1">
-                      <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Chart Area */}
-                  <div className="h-24 bg-gradient-to-br from-purple-100 to-purple-300 rounded-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40"></div>
-                    <div className="absolute bottom-2 left-2 right-2">
-                      <div className="grid grid-cols-4 gap-2">
-                        {[40, 60, 80, 50].map((height, i) => (
-                          <div
-                            key={i}
-                            className="bg-white/30 rounded-sm"
-                            style={{ height: `${height}%` }}
-                          ></div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Metrics */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gray-50 p-3 rounded-lg">
-                      <div className="text-sm text-gray-600">Automação</div>
-                      <div className="text-2xl font-bold text-green-600">+89%</div>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded-lg">
-                      <div className="text-sm text-gray-600">Produtividade</div>
-                      <div className="text-2xl font-bold text-blue-600">+156%</div>
-                    </div>
-                  </div>
+                  <div className="text-3xl font-bold text-white">24h</div>
+                  <div className="text-sm text-gray-200">Tempo Resposta</div>
                 </div>
               </div>
             </div>
@@ -209,35 +173,56 @@ const Home = () => {
       {/* About Section */}
       <section className="py-20 bg-accent" data-animate id="about">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className={`space-y-8 fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
-              <h2 className="text-4xl font-bold">Sobre Nós</h2>
-              
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-primary">Missão</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+          {/* Cabeçalho da seção */}
+          <div className={`text-center space-y-6 mb-16 fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
+            <h2 className="text-5xl font-bold">Sobre Nós</h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Simplificamos tecnologia para impulsionar pessoas e negócios — com foco em soluções digitais inteligentes para a América Latina.
+            </p>
+          </div>
+          
+          {/* Grade 2x2 */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Coluna Esquerda - Missão, Visão e Valores */}
+            <div className="space-y-8">
+              {/* Missão */}
+              <div className="bg-white p-8 rounded-xl shadow-sm">
+                <div className="space-y-4">
+                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Missão</span>
+                  <p className="text-lg text-gray-800 leading-relaxed max-w-prose">
                     Simplificar tecnologia para impulsionar pessoas e negócios.
                   </p>
                 </div>
-                
-                <div className="space-y-2">
-                  <h3 className="text-xl font-semibold text-primary">Visão</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+              </div>
+              
+              {/* Visão */}
+              <div className="bg-white p-8 rounded-xl shadow-sm">
+                <div className="space-y-4">
+                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Visão</span>
+                  <p className="text-lg text-gray-800 leading-relaxed max-w-prose">
                     Ser referência em soluções digitais inteligentes na América Latina.
                   </p>
                 </div>
-                
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-primary">Valores</h3>
-                  <div className="flex flex-wrap gap-3">
-                    {values.map((value, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center space-x-2 bg-white/50 px-4 py-2 rounded-lg"
-                      >
-                        <div className="text-primary">{value.icon}</div>
-                        <span className="font-medium">{value.text}</span>
+              </div>
+              
+              {/* Valores */}
+              <div className="bg-white p-8 rounded-xl shadow-sm">
+                <div className="space-y-6">
+                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Valores</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { icon: <Lightbulb className="w-5 h-5" />, text: "Inovação", description: "testamos, medimos e escalamos o que funciona." },
+                      { icon: <Heart className="w-5 h-5" />, text: "Ética", description: "decisões e dados com transparência." },
+                      { icon: <Award className="w-5 h-5" />, text: "Excelência", description: "qualidade previsível e atenção aos detalhes." },
+                      { icon: <Brain className="w-5 h-5" />, text: "Criatividade", description: "soluções simples para problemas complexos." },
+                      { icon: <Users className="w-5 h-5" />, text: "Proximidade", description: "comunicação direta, sem jargão." }
+                    ].map((value, index) => (
+                      <div key={index} className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                          <div className="text-primary">{value.icon}</div>
+                          <span className="font-semibold text-gray-800">{value.text}</span>
+                        </div>
+                        <p className="text-sm text-gray-600 leading-relaxed pl-7">{value.description}</p>
                       </div>
                     ))}
                   </div>
@@ -245,11 +230,12 @@ const Home = () => {
               </div>
             </div>
             
+            {/* Coluna Direita - Imagem */}
             <div className={`fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
                 alt="Equipe trabalhando"
-                className="rounded-xl shadow-elegant"
+                className="w-full h-auto rounded-xl shadow-sm object-cover"
               />
             </div>
           </div>
@@ -310,7 +296,7 @@ const Home = () => {
               Vamos conversar sobre como a tecnologia pode acelerar o crescimento da sua empresa
             </p>
             <a
-              href="https://wa.me/5511999999999"
+              href={config.whatsapp.url}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center space-x-2 text-lg px-12 py-4"

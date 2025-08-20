@@ -1,15 +1,16 @@
 import { MessageCircle } from 'lucide-react';
+import { config } from '../lib/config';
 
 const WhatsAppButton = () => {
   return (
     <a
-      href="https://wa.me/5511999999999"
+      href={config.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-float pulse-glow group"
+      className="whatsapp-float"
       aria-label="Falar no WhatsApp"
     >
-      <MessageCircle size={24} className="group-hover:scale-110 transition-transform duration-300" />
+      <MessageCircle size={24} />
     </a>
   );
 };
