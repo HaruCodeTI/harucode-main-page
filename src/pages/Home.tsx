@@ -48,21 +48,38 @@ const Home = () => {
 
   const blogPosts = [
     {
+      id: 1,
       image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=225&fit=crop",
       title: "ERP de Restaurante: quando a planilha vira prejuízo",
       excerpt: "Sinais de que sua operação passou do ponto e precisa de ERP..."
     },
     {
+      id: 2,
       image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=400&h=225&fit=crop",
       title: "O Futuro da Automação nas Empresas",
       excerpt: "Como a IA está revolucionando processos empresariais e aumentando a produtividade..."
     },
     {
+      id: 3,
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop",
       title: "Desenvolvimento Web: Tendências 2024",
       excerpt: "As principais tecnologias e frameworks que estão moldando o desenvolvimento web..."
     }
   ];
+
+  const getPostUrl = (post: any) => {
+    if (post.id === 1) {
+      return '/blog/erp-restaurante-planilha-prejuizo';
+    }
+    if (post.id === 2) {
+      return '/blog/controle-pecas-estoque';
+    }
+    if (post.id === 3) {
+      return '/blog/site-que-gera-leads-checklist';
+    }
+    // Para outros posts, redireciona para o blog geral
+    return '/blog';
+  };
 
   const values = [
     { icon: <Lightbulb className="w-6 h-6" />, text: "Inovação" },
@@ -253,7 +270,7 @@ const Home = () => {
                 <div className="p-6 space-y-3">
                   <h3 className="text-lg font-semibold">{post.title}</h3>
                   <p className="text-muted-foreground">{post.excerpt}</p>
-                  <Link to="/blog" className="text-primary font-medium hover:underline inline-flex items-center space-x-1">
+                  <Link to={getPostUrl(post)} className="text-primary font-medium hover:underline inline-flex items-center space-x-1">
                     <span>Ler mais</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
