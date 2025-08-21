@@ -24,8 +24,7 @@ const Servicos = () => {
       benefits: [
         "Redução de até 80% no tempo de processos",
         "Eliminação de erros humanos",
-        "Maior produtividade da equipe",
-        "ROI em até 6 meses"
+        "Maior produtividade da equipe"
       ]
     },
     {
