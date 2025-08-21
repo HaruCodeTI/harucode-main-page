@@ -21,13 +21,10 @@ const Footer = () => {
               do seu negócio através de automação, desenvolvimento e consultoria em IA.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/harucode.ti/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/haru-code/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors">
                 <Linkedin size={20} />
               </a>
             </div>

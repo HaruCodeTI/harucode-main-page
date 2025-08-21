@@ -236,8 +236,8 @@ const Home = () => {
             {/* Coluna Direita - Imagem */}
             <div className={`fade-in-up flex items-center justify-center ${visibleSections.includes('about') ? 'visible' : ''}`}>
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
-                alt="Equipe trabalhando"
+                src="/workflow.png"
+                alt="Workflow e processos"
                 className="w-full h-auto rounded-xl shadow-sm object-cover max-w-lg"
               />
             </div>
