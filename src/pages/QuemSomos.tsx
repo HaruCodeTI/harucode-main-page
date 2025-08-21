@@ -50,7 +50,7 @@ const QuemSomos = () => {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-accent">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12 mb-20">
             <div className="text-center space-y-4">
@@ -90,7 +90,7 @@ const QuemSomos = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-accent">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-4xl font-bold">Nossos Valores</h2>
@@ -113,24 +113,7 @@ const QuemSomos = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "100+", label: "Projetos Entregues" },
-              { number: "50+", label: "Clientes Satisfeitos" },
-              { number: "4", label: "Anos de Experiência" },
-              { number: "24/7", label: "Suporte Disponível" }
-            ].map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <div className="text-4xl font-bold text-gradient">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-primary-light">

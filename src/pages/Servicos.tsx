@@ -172,7 +172,7 @@ const Servicos = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-accent">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-4xl font-bold">Como Trabalhamos</h2>
@@ -231,28 +231,7 @@ const Servicos = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-accent">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="glass-card p-8 space-y-6 max-w-md mx-auto">
-              <h3 className="text-2xl font-bold">Precisa de ajuda?</h3>
-              <p className="text-muted-foreground">
-                Nossa equipe está pronta para ajudar você a transformar seu negócio
-              </p>
-              <a
-                href={config.whatsapp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center space-x-2 w-full"
-              >
-                <span>Solicitar proposta</span>
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <Footer />
       <WhatsAppButton />

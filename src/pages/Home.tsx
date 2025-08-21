@@ -77,14 +77,14 @@ const Home = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 pb-16 md:pb-20 bg-secondary relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 bg-black relative overflow-hidden">
         <Squares 
           speed={0.5} 
           squareSize={100}
           direction='left'
-          borderColor='#848EFE'
+          borderColor='#475569'
           hoverFillColor='#FFFFFF'
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-40 w-full h-full"
         />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -97,9 +97,9 @@ const Home = () => {
 
               <div className="space-y-6">
                 <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-white">
-                  Tecnologia que{' '}
-                  <span className="text-gradient">acelera</span>{' '}
-                  o crescimento do seu negócio
+                Automação e software que {' '}
+                  <span className="text-gradient">cortam</span>{' '}
+                  retrabalho e aumentam sua margem.
                 </h1>
                 <p className="text-lg text-gray-100 leading-relaxed max-w-3xl mx-auto">
                   Soluções customizadas em software, automação e IA que modernizam 
@@ -122,21 +122,7 @@ const Home = () => {
                 </Link>
               </div>
 
-              {/* Statistics */}
-              <div className="grid grid-cols-3 gap-8 pt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white">50+</div>
-                  <div className="text-sm text-gray-200">Projetos Entregues</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white">98%</div>
-                  <div className="text-sm text-gray-200">Satisfação Cliente</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white">24h</div>
-                  <div className="text-sm text-gray-200">Tempo Resposta</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

@@ -37,8 +37,9 @@ const Squares = ({
       canvas.width = rect.width;
       canvas.height = rect.height;
       
-      numSquaresX.current = Math.ceil(canvas.width / squareSize);
-      numSquaresY.current = Math.ceil(canvas.height / squareSize);
+      // Garantir que os quadrados cubram toda a área + margem extra
+      numSquaresX.current = Math.ceil(canvas.width / squareSize) + 2;
+      numSquaresY.current = Math.ceil(canvas.height / squareSize) + 2;
     };
 
     const animate = () => {
@@ -80,8 +81,8 @@ const Squares = ({
       }
 
       // Draw squares
-      for (let x = 0; x <= numSquaresX.current; x++) {
-        for (let y = 0; y <= numSquaresY.current; y++) {
+      for (let x = -1; x <= numSquaresX.current; x++) {
+        for (let y = -1; y <= numSquaresY.current; y++) {
           const squareX = x * squareSize - gridOffset.current.x;
           const squareY = y * squareSize - gridOffset.current.y;
 
@@ -112,6 +113,7 @@ const Squares = ({
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;
 
+      // Ajustar para o novo sistema de coordenadas
       const squareX = Math.floor((mouseX + gridOffset.current.x) / squareSize);
       const squareY = Math.floor((mouseY + gridOffset.current.y) / squareSize);
 
