@@ -257,9 +257,10 @@ const Home = () => {
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {blogPosts.map((post, index) => (
-              <article
+              <Link
                 key={index}
-                className={`glass-card overflow-hidden card-hover fade-in-up ${visibleSections.includes('blog') ? 'visible' : ''}`}
+                to={getPostUrl(post)}
+                className={`glass-card overflow-hidden card-hover fade-in-up block ${visibleSections.includes('blog') ? 'visible' : ''}`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <img
@@ -270,12 +271,12 @@ const Home = () => {
                 <div className="p-6 space-y-3">
                   <h3 className="text-lg font-semibold">{post.title}</h3>
                   <p className="text-muted-foreground">{post.excerpt}</p>
-                  <Link to={getPostUrl(post)} className="text-primary font-medium hover:underline inline-flex items-center space-x-1">
+                  <div className="text-primary font-medium inline-flex items-center space-x-1">
                     <span>Ler mais</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
           
