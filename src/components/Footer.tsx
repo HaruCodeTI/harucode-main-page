@@ -101,6 +101,9 @@ const Footer = () => {
           <p className="text-gray-300">
             © 2025 HaruCode. Todos os direitos reservados.
           </p>
+          <p className="text-gray-400 text-sm mt-2">
+            CNPJ: {config.company.cnpj} | HaruCode Tecnologia Ltda
+          </p>
         </div>
       </div>
     </footer>

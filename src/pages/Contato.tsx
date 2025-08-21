@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, AlertCircle, Building2 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { config } from '../lib/config';
+import emailjs from '@emailjs/browser';
 
 const Contato = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const Contato = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string>('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
@@ -51,20 +53,49 @@ const Contato = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError('');
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Preparar dados para o template
+      const templateParams = {
+        from_name: formData.nome,
+        from_email: formData.email,
+        from_phone: formData.telefone,
+        from_company: formData.empresa || 'Não informado',
+        subject: formData.assunto || 'Contato via site',
+        message: formData.mensagem,
+        to_email: config.emailjs.recipientEmail, // Email específico para receber contatos
+        company_name: config.company.name,
+        reply_to: formData.email // Para facilitar resposta direta
+      };
+
+      // Enviar email via EmailJS
+      const response = await emailjs.send(
+        config.emailjs.serviceId,
+        config.emailjs.templateId,
+        templateParams,
+        config.emailjs.publicKey
+      );
+
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          empresa: '',
+          assunto: '',
+          mensagem: ''
+        });
+      } else {
+        throw new Error('Falha no envio do email');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      setSubmitError('Erro ao enviar mensagem. Tente novamente ou entre em contato pelo WhatsApp.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({
-        nome: '',
-        email: '',
-        telefone: '',
-        empresa: '',
-        assunto: '',
-        mensagem: ''
-      });
-    }, 2000);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -254,6 +285,17 @@ const Contato = () => {
                   )}
                 </div>
 
+                {/* Mensagem de erro */}
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start space-x-3">
+                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <div className="text-red-700">
+                      <p className="font-medium">Erro no envio</p>
+                      <p className="text-sm">{submitError}</p>
+                    </div>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -336,6 +378,19 @@ const Contato = () => {
                       Segunda a Sexta: 9h às 19h<br />
                       Sábado: 9h às 13h<br />
                       Domingo: Fechado
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Building2 className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold">Informações da Empresa</h3>
+                    <p className="text-muted-foreground">
+                      CNPJ: {config.company.cnpj}<br />
+                      Razão Social: HaruCode Tecnologia Ltda
                     </p>
                   </div>
                 </div>

@@ -174,73 +174,83 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-accent" data-animate id="about">
+      <section className="py-16 bg-accent" data-animate id="about" aria-labelledby="essencia">
         <div className="container mx-auto px-4">
           {/* Cabeçalho da seção */}
-          <div className={`text-center space-y-6 mb-16 fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
-            <h2 className="text-5xl font-bold">Sobre Nós</h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Simplificamos tecnologia para impulsionar pessoas e negócios — com foco em soluções digitais inteligentes para a América Latina.
+          <div className={`text-center space-y-4 mb-12 fade-in-up ${visibleSections.includes('about') ? 'visible' : ''}`}>
+            <h2 id="essencia" className="text-3xl font-semibold">Nossa essência</h2>
+            <p className="text-muted-foreground max-w-4xl mx-auto">
+              Tecnologia enxuta para colocar sites e sistemas no ar com qualidade e custo sob controle.
             </p>
           </div>
           
-          {/* Grade 2x2 */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Coluna Esquerda - Missão, Visão e Valores */}
-            <div className="space-y-8">
-              {/* Missão */}
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <div className="space-y-4">
-                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Missão</span>
-                  <p className="text-lg text-gray-800 leading-relaxed max-w-prose">
-                    Simplificar tecnologia para impulsionar pessoas e negócios.
-                  </p>
-                </div>
+          {/* Grid 2 colunas */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            {/* Coluna Esquerda - Missão e Visão */}
+            <div className="space-y-6">
+              <div className="rounded-2xl bg-white p-6 shadow-sm min-h-[150px]">
+                <h3 className="text-xl font-semibold">Missão</h3>
+                <p className="mt-2 text-gray-700">
+                  Simplificar tecnologia para impulsionar pessoas e negócios — do planejamento ao pós-lançamento.
+                </p>
               </div>
-              
-              {/* Visão */}
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <div className="space-y-4">
-                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Visão</span>
-                  <p className="text-lg text-gray-800 leading-relaxed max-w-prose">
-                    Ser referência em soluções digitais inteligentes na América Latina.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Valores */}
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <div className="space-y-6">
-                  <span className="text-sm font-semibold text-primary uppercase tracking-wide">Valores</span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {[
-                      { icon: <Lightbulb className="w-5 h-5" />, text: "Inovação", description: "testamos, medimos e escalamos o que funciona." },
-                      { icon: <img src="/aba.svg" alt="Ética" className="w-5 h-5" />, text: "Ética", description: "decisões e dados com transparência." },
-                      { icon: <Award className="w-5 h-5" />, text: "Excelência", description: "qualidade previsível e atenção aos detalhes." },
-                      { icon: <Brain className="w-5 h-5" />, text: "Criatividade", description: "soluções simples para problemas complexos." },
-                      { icon: <Users className="w-5 h-5" />, text: "Proximidade", description: "comunicação direta, sem jargão." }
-                    ].map((value, index) => (
-                      <div key={index} className="space-y-2">
-                        <div className="flex items-center space-x-2">
-                          <div className="text-primary">{value.icon}</div>
-                          <span className="font-semibold text-gray-800">{value.text}</span>
-                        </div>
-                        <p className="text-sm text-gray-600 leading-relaxed pl-7">{value.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="rounded-2xl bg-white p-6 shadow-sm min-h-[150px]">
+                <h3 className="text-xl font-semibold">Visão</h3>
+                <p className="mt-2 text-gray-700">
+                  Ser referência em soluções digitais enxutas e inteligentes na América Latina.
+                </p>
               </div>
             </div>
             
-            {/* Coluna Direita - Imagem */}
+            {/* Coluna Direita - Imagem de Workflow */}
             <div className={`fade-in-up flex items-center justify-center ${visibleSections.includes('about') ? 'visible' : ''}`}>
-              <img
-                src="/workflow.png"
-                alt="Workflow e processos"
-                className="w-full h-auto rounded-xl shadow-sm object-cover max-w-lg"
-              />
+              <figure className="rounded-2xl bg-white p-4 shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1561719998-e6763867e182?w=600&h=400&fit=crop"
+                  alt="Fluxo de automação conectando site, ERP, WhatsApp e pagamentos"
+                  className="w-full h-auto rounded-xl"
+                />
+              </figure>
             </div>
+          </div>
+          
+          {/* Valores em faixa própria */}
+          <div className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
+            <h3 className="text-xl font-semibold">Valores</h3>
+            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <li className="flex gap-3">
+                <span aria-hidden="true">💡</span>
+                <div><strong>Inovação</strong> — testamos, medimos e escalamos o que funciona.</div>
+              </li>
+              <li className="flex gap-3">
+                <span aria-hidden="true">🎯</span>
+                <div><strong>Excelência</strong> — previsibilidade e atenção aos detalhes.</div>
+              </li>
+              <li className="flex gap-3">
+                <span aria-hidden="true">🤝</span>
+                <div><strong>Proximidade</strong> — comunicação direta, sem jargão.</div>
+              </li>
+              <li className="flex gap-3">
+                <span aria-hidden="true">🧭</span>
+                <div><strong>Ética</strong> — decisões e dados com transparência.</div>
+              </li>
+              <li className="flex gap-3">
+                <span aria-hidden="true">🛠️</span>
+                <div><strong>Criatividade</strong> — soluções simples para problemas complexos.</div>
+              </li>
+            </ul>
+          </div>
+          
+          {/* CTA WhatsApp */}
+          <div className="mt-6 text-center">
+            <a
+              href={config.whatsapp.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-xl bg-purple-600 px-5 py-3 text-white font-medium hover:bg-purple-700 transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

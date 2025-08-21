@@ -77,7 +77,7 @@ const PostSiteLeads = () => {
             {/* Featured Image */}
             <div className="mb-12">
               <img
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop"
                 alt="Site web com foco em conversão e leads"
                 className="w-full h-auto rounded-xl shadow-lg object-cover"
               />

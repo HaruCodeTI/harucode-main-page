@@ -11,6 +11,16 @@ export const config = {
   company: {
     name: 'HaruCode',
     email: 'contato.harucode@gmail.com',
-    location: 'Campo Grande, MS - Brasil'
+    location: 'Campo Grande, MS - Brasil',
+    cnpj: '59.153.541/0001-00'
+  },
+  
+  // Configurações do EmailJS para envio de emails
+  emailjs: {
+    serviceId: 'service_2p5vvqw', // ID do serviço EmailJS (Gmail, Outlook, etc.)
+    templateId: 'template_537uudr', // ID do template de email
+    publicKey: 'eNHB0M5ZBjtfnYNNl', // Chave pública do EmailJS
+    // Email que receberá as mensagens do formulário de contato
+    recipientEmail: 'contato.harucode@gmail.com'
   }
 };

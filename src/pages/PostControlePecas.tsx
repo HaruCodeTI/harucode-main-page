@@ -77,7 +77,7 @@ const PostControlePecas = () => {
             {/* Featured Image */}
             <div className="mb-12">
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop"
+                src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?w=800&h=400&fit=crop"
                 alt="Estoque organizado com peças e componentes"
                 className="w-full h-auto rounded-xl shadow-lg object-cover"
               />

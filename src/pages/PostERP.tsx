@@ -77,7 +77,7 @@ const PostERP = () => {
             {/* Featured Image */}
             <div className="mb-12">
               <img
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=400&fit=crop"
+                src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=800&h=400&fit=crop"
                 alt="Restaurante com equipe trabalhando"
                 className="w-full h-auto rounded-xl shadow-lg object-cover"
               />
