@@ -1,4 +1,5 @@
 import { BrainCircuit, Code2, Layers3, Workflow } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const solutions = [
   {
@@ -36,7 +37,13 @@ const SolutionsSection = () => {
     <section id="expertise" className="relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(124,58,237,0.28),transparent_55%)]" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 py-24">
-        <div className="max-w-3xl space-y-4">
+        <motion.div
+          className="max-w-3xl space-y-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
           <p className="text-xs uppercase tracking-[0.4em] text-white/50">Expertise transversal</p>
           <h2 className="text-balance text-4xl font-semibold text-white sm:text-5xl">
             Tecnologia como escudo estratégico para o seu crescimento.
@@ -45,14 +52,42 @@ const SolutionsSection = () => {
             Selecionamos a squad ideal para cada fase, cuidando de discovery, arquitetura, implementação e Operação
             Assistida. Conectamos pessoas, dados e finanças com precisão.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <motion.div
+          className="grid gap-6 sm:grid-cols-2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.18
+              }
+            }
+          }}
+        >
           {solutions.map((solution) => (
-            <article
+            <motion.article
               key={solution.title}
-              className="group rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-2xl transition hover:border-primary/40 hover:bg-white/10"
+              className="group relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-2xl transition hover:border-primary/40 hover:bg-white/10"
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              whileHover={{ y: -6, transition: { duration: 0.4 } }}
             >
+              <motion.span
+                className="absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
+                style={{
+                  background:
+                    'radial-gradient(circle at top, rgba(124,58,237,0.35), transparent 65%)'
+                }}
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+              />
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/40 text-primary">
                 {solution.icon}
               </div>
@@ -65,9 +100,9 @@ const SolutionsSection = () => {
                   </span>
                 ))}
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
