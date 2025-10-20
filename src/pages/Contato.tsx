@@ -51,10 +51,18 @@ const Contato = () => {
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch('https://n8n.harucode.com.br/webhook-test/a21a126b-a5e6-47b6-b205-26c5efb478c2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha no envio');
+      }
+
       setIsSubmitted(true);
       setFormData({
         nome: '',
@@ -64,7 +72,12 @@ const Contato = () => {
         assunto: '',
         mensagem: ''
       });
-    }, 2000);
+    } catch (error) {
+      console.error('Erro ao enviar formulário', error);
+      window.alert('Não foi possível enviar sua mensagem. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
