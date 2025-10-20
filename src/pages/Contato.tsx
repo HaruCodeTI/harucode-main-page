@@ -122,35 +122,42 @@ const Contato = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 hero-gradient">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            Entre em <span className="text-gradient">Contato</span>
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_10%_15%,rgba(124,58,237,0.3),rgba(5,6,16,0.95))] pb-28 pt-40">
+        <div className="absolute inset-0">
+          <div className="absolute left-1/3 top-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-primary-light/25 blur-3xl" />
+        </div>
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-xs uppercase tracking-[0.35em] text-white/70">
+            Fale com especialistas
+          </span>
+          <h1 className="text-balance text-4xl font-semibold text-white sm:text-5xl">
+            Conecte seu negócio a um time que entrega tecnologia sob medida.
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Vamos conversar sobre como podemos ajudar seu negócio a crescer com tecnologia
+          <p className="max-w-2xl text-lg text-white/60">
+            Conte sua dor em poucos minutos. Voltamos com diagnóstico, roadmap prático e investimento estimado em até
+            24h úteis.
           </p>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+      <section className="relative -mt-20 pb-24">
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[1.6fr_1fr]">
             {/* Contact Form */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl font-bold">Fale Conosco</h2>
-                <p className="text-muted-foreground text-lg">
-                  Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas.
-                </p>
-              </div>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-white shadow-glass backdrop-blur-3xl lg:p-12">
+            <div className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.4em] text-white/40">Formulário</p>
+              <h2 className="text-3xl font-semibold">Conte sobre seu projeto</h2>
+              <p className="text-sm text-white/60">
+                Precisamos apenas de alguns detalhes para direcionar o time correto e montar o blueprint inicial.
+              </p>
+            </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="mt-8 space-y-7">
+              <div className="grid gap-7 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label htmlFor="nome" className="block text-sm font-medium">
-                      Nome *
+                    <label htmlFor="nome" className="block text-xs uppercase tracking-[0.3em] text-white/50">
+                      Nome completo *
                     </label>
                     <input
                       type="text"
@@ -158,10 +165,10 @@ const Contato = () => {
                       name="nome"
                       value={formData.nome}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                        errors.nome ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full rounded-2xl border bg-black/40 px-5 py-4 text-base text-white/80 placeholder:text-white/30 focus:ring-2 focus:ring-primary focus:outline-none ${
+                        errors.nome ? 'border-red-500/80' : 'border-white/10'
                       }`}
-                      placeholder="Seu nome completo"
+                      placeholder="Como devemos te chamar?"
                     />
                     {errors.nome && (
                       <p className="text-red-500 text-sm">{errors.nome}</p>
@@ -169,7 +176,7 @@ const Contato = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-medium">
+                    <label htmlFor="email" className="block text-xs uppercase tracking-[0.3em] text-white/50">
                       Email *
                     </label>
                     <input
@@ -178,10 +185,10 @@ const Contato = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full rounded-2xl border bg-black/40 px-5 py-4 text-base text-white/80 placeholder:text-white/30 focus:ring-2 focus:ring-primary focus:outline-none ${
+                        errors.email ? 'border-red-500/80' : 'border-white/10'
                       }`}
-                      placeholder="seu@email.com"
+                      placeholder="nome@empresa.com"
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm">{errors.email}</p>
@@ -189,9 +196,9 @@ const Contato = () => {
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid gap-7 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label htmlFor="telefone" className="block text-sm font-medium">
+                    <label htmlFor="telefone" className="block text-xs uppercase tracking-[0.3em] text-white/50">
                       Telefone *
                     </label>
                     <input
@@ -200,10 +207,10 @@ const Contato = () => {
                       name="telefone"
                       value={formData.telefone}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
-                        errors.telefone ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full rounded-2xl border bg-black/40 px-5 py-4 text-base text-white/80 placeholder:text-white/30 focus:ring-2 focus:ring-primary focus:outline-none ${
+                        errors.telefone ? 'border-red-500/80' : 'border-white/10'
                       }`}
-                      placeholder="(11) 99999-9999"
+                      placeholder="(67) 99999-9999"
                     />
                     {errors.telefone && (
                       <p className="text-red-500 text-sm">{errors.telefone}</p>
@@ -211,7 +218,7 @@ const Contato = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="empresa" className="block text-sm font-medium">
+                    <label htmlFor="empresa" className="block text-xs uppercase tracking-[0.3em] text-white/50">
                       Empresa
                     </label>
                     <input
@@ -220,14 +227,14 @@ const Contato = () => {
                       name="empresa"
                       value={formData.empresa}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
-                      placeholder="Nome da sua empresa"
+                      className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-base text-white/80 placeholder:text-white/30 focus:ring-2 focus:ring-primary focus:outline-none"
+                      placeholder="Onde você atua?"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="assunto" className="block text-sm font-medium">
+                  <label htmlFor="assunto" className="block text-xs uppercase tracking-[0.3em] text-white/50">
                     Assunto
                   </label>
                   <select
@@ -235,7 +242,7 @@ const Contato = () => {
                     name="assunto"
                     value={formData.assunto}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                    className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-base text-white/80 focus:ring-2 focus:ring-primary focus:outline-none"
                   >
                     <option value="">Selecione um assunto</option>
                     <option value="automacao">Automação de Processos</option>
@@ -248,7 +255,7 @@ const Contato = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="mensagem" className="block text-sm font-medium">
+                  <label htmlFor="mensagem" className="block text-xs uppercase tracking-[0.3em] text-white/50">
                     Mensagem *
                   </label>
                   <textarea
@@ -257,10 +264,10 @@ const Contato = () => {
                     value={formData.mensagem}
                     onChange={handleInputChange}
                     rows={6}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none ${
-                      errors.mensagem ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full resize-none rounded-2xl border bg-black/40 px-5 py-5 text-base text-white/80 placeholder:text-white/30 focus:ring-2 focus:ring-primary focus:outline-none ${
+                      errors.mensagem ? 'border-red-500/80' : 'border-white/10'
                     }`}
-                    placeholder="Descreva seu projeto ou necessidade..."
+                    placeholder="O que você quer construir ou otimizar?"
                   />
                   {errors.mensagem && (
                     <p className="text-red-500 text-sm">{errors.mensagem}</p>
@@ -270,132 +277,111 @@ const Contato = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`btn-primary w-full inline-flex items-center justify-center space-x-2 ${
+                  className={`btn-primary w-full flex items-center justify-center gap-3 px-10 py-4 text-base ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <div className="h-5 w-5 rounded-full border-2 border-white border-t-transparent animate-spin"></div>
                       <span>Enviando...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <Send className="h-5 w-5" />
                       <span>Enviar mensagem</span>
                     </>
                   )}
                 </button>
               </form>
+          </div>
+
+          <div className="flex flex-col gap-6 rounded-3xl border border-white/5 bg-black/60 p-10 text-white/70 backdrop-blur-3xl lg:p-12">
+            <div className="space-y-3">
+              <p className="text-xs uppercase tracking-[0.35em] text-white/40">Acesso direto</p>
+              <h2 className="text-3xl font-semibold text-white">Contato imediato</h2>
+              <p className="text-sm text-white/60">
+                Estamos prontos para entender seu contexto e iniciar um diagnóstico com nosso time multifuncional.
+              </p>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl font-bold">Informações de Contato</h2>
-                <p className="text-muted-foreground text-lg">
-                  Estamos sempre disponíveis para ajudar. Entre em contato através dos canais abaixo.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold">Endereço</h3>
-                    <p className="text-muted-foreground">
-                      Rua Geraldo Agostinho Ramos, 90 - Jardim Paulista<br />
-                      Campo Grande, MS - CEP: 79050-080<br />
-                      Brasil
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold">Telefone</h3>
-                    <p className="text-muted-foreground">
-                      +55 (67) 99610-1030<br />
-                      Segunda a Sexta: 9h às 19h
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-muted-foreground">
-                      contato.harucode@gmail.com<br />
-                      Resposta em até 24h
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="font-semibold">Horário de Funcionamento</h3>
-                    <p className="text-muted-foreground">
-                      Segunda a Sexta: 9h às 19h<br />
-                      Sábado: 9h às 13h<br />
-                      Domingo: Fechado
-                    </p>
-                  </div>
+            <div className="space-y-5 text-sm">
+              <div className="flex gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-primary/10 text-primary">
+                  <MapPin size={20} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/40">Endereço</p>
+                  <p className="text-white/75">
+                    Rua Geraldo Agostinho Ramos, 90 - Jardim Paulista<br />Campo Grande, MS - 79050-080
+                  </p>
                 </div>
               </div>
 
-              {/* WhatsApp Card */}
-              <div className="glass-card p-6 space-y-4">
-                <h3 className="text-lg font-semibold">Prefere conversar pelo WhatsApp?</h3>
-                <p className="text-muted-foreground">
-                  Fale diretamente conosco para um atendimento mais rápido e personalizado.
-                </p>
-                <a
-                  href={config.whatsapp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center space-x-2 text-lg px-12 py-4"
-                >
-                  <span>Converse no WhatsApp</span>
-                </a>
+              <div className="flex gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-primary/10 text-primary">
+                  <Phone size={20} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/40">Telefone / WhatsApp</p>
+                  <p className="text-white/75">{config.whatsapp.formatted}</p>
+                  <p className="text-xs text-white/40">Segunda a sexta · 9h às 19h</p>
+                </div>
               </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-primary/10 text-primary">
+                  <Mail size={20} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/40">Email</p>
+                  <p className="text-white/75">{config.company.email}</p>
+                  <p className="text-xs text-white/40">Retorno em até 24h úteis</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-primary/10 text-primary">
+                  <Clock size={20} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/40">Disponibilidade</p>
+                  <p className="text-white/75">Sábado das 9h às 13h · Domingo off</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 rounded-3xl border border-white/10 bg-primary/10 p-8 text-white">
+              <p className="text-md font-semibold">Precisa agilizar?</p>
+              <p className="mt-2 text-sm text-white/70">
+                Nosso time responde em minutos via WhatsApp. Envie briefing, documentos ou agenda uma call express.
+              </p>
+              <a
+                href={config.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/90 px-6 py-3 text-sm font-medium text-primary transition hover:bg-white"
+              >
+                Conversar via WhatsApp
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-accent">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-4xl font-bold">Nossa Localização</h2>
-            <p className="text-xl text-muted-foreground">
-              Venha nos visitar em nosso escritório em Campo Grande
-            </p>
-          </div>
-
-          <div className="glass-card overflow-hidden rounded-xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.5305171778755!2d-54.611043800000004!3d-20.4844673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e600097824d1%3A0xf436d6fd153065b8!2sR.%20Geraldo%20Agostinho%20Ramos%2C%2090%20-%20Jardim%20Paulista%2C%20Campo%20Grande%20-%20MS%2C%2079050-080!5e0!3m2!1sen!2sbr!4v1755637101763!5m2!1sen!2sbr"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Localização HaruCode"
-            />
-          </div>
+      <section className="px-6 pb-24">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/5 bg-black/80 shadow-glass">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.5305171778755!2d-54.611043800000004!3d-20.4844673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e600097824d1%3A0xf436d6fd153065b8!2sR.%20Geraldo%20Agostinho%20Ramos%2C%2090%20-%20Jardim%20Paulista%2C%20Campo%20Grande%20-%20MS%2C%2079050-080!5e0!3m2!1sen!2sbr!4v1755637101763!5m2!1sen!2sbr"
+            width="100%"
+            height="420"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Localização HaruCode"
+          />
         </div>
       </section>
 

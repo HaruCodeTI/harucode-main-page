@@ -1,109 +1,89 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { config } from '../lib/config';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-secondary-foreground">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center">
-              <img 
-                src="/10.svg" 
-                alt="HaruCode Logo" 
-                className="h-14 w-auto opacity-90 filter brightness-110"
+    <footer className="border-t border-white/10 bg-black/90 text-white/60">
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid gap-12 md:grid-cols-[1.35fr_1fr_1fr]">
+          <div className="space-y-6">
+            <Link to="/" className="inline-flex items-center gap-3">
+              <img
+                src="/10.svg"
+                alt="HaruCode Logo"
+                className="h-12 w-auto drop-shadow-[0_0_22px_rgba(124,58,237,0.45)]"
               />
-            </div>
-            <p className="text-gray-300 leading-relaxed">
-              Transformamos ideias em soluções tecnológicas que impulsionam o crescimento 
-              do seu negócio através de automação, desenvolvimento e consultoria em IA.
+              <span className="text-sm font-semibold uppercase tracking-[0.35em] text-white/50">HaruCode</span>
+            </Link>
+            <p className="max-w-md text-sm leading-relaxed text-white/55">
+              Construímos produtos, integrações e IA que entregam previsibilidade para operações complexas.
+              Exploramos tecnologia como vantagem competitiva.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Facebook size={20} />
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/harucode.ti"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-white/30 hover:text-white"
+              >
+                <Instagram size={18} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                <Linkedin size={20} />
+              <a
+                href="https://linkedin.com/company/haru-code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-white/30 hover:text-white"
+              >
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Links Rápidos</h3>
-            <nav className="flex flex-col space-y-2">
-              <Link to="/" className="text-gray-300 hover:text-primary transition-colors">
-                Home
-              </Link>
-              <Link to="/servicos" className="text-gray-300 hover:text-primary transition-colors">
-                Serviços
-              </Link>
-              <Link to="/quem-somos" className="text-gray-300 hover:text-primary transition-colors">
-                Quem Somos
-              </Link>
-              <Link to="/blog" className="text-gray-300 hover:text-primary transition-colors">
-                Blog
-              </Link>
-              <Link to="/contato" className="text-gray-300 hover:text-primary transition-colors">
+          <div>
+            <p className="text-xs uppercase tracking-[0.35em] text-white/40">Mapa</p>
+            <nav className="mt-6 flex flex-col gap-3 text-sm text-white/60">
+              <Link to="/" className="transition hover:text-white">Início</Link>
+              <a href="/#expertise" className="transition hover:text-white">
+                Expertise
+              </a>
+              <a href="/#cases" className="transition hover:text-white">
+                Casos
+              </a>
+              <Link to="/contato" className="transition hover:text-white">
                 Contato
               </Link>
             </nav>
           </div>
 
-          {/* Services */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Serviços</h3>
-            <nav className="flex flex-col space-y-2">
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                Automação de Processos
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                Desenvolvimento Web
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                Consultoria em IA
-              </a>
-              <a href="#" className="text-gray-300 hover:text-primary transition-colors">
-                Integração de Sistemas
-              </a>
-            </nav>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">Contato</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin size={18} className="text-primary" />
-                <span className="text-gray-300">
-                  Campo Grande, MS - Brasil
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone size={18} className="text-primary" />
-                <span className="text-gray-300">
-                  {config.whatsapp.formatted}
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail size={18} className="text-primary" />
-                <span className="text-gray-300">
-                  {config.company.email}
-                </span>
-              </div>
+          <div className="space-y-4 text-sm text-white/60">
+            <p className="text-xs uppercase tracking-[0.35em] text-white/40">Contato</p>
+            <div className="flex items-start gap-3">
+              <span className="mt-1 text-primary">
+                <MapPin size={16} />
+              </span>
+              <p>Campo Grande · MS · Brasil</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="mt-1 text-primary">
+                <Phone size={16} />
+              </span>
+              <p>{config.whatsapp.formatted}</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="mt-1 text-primary">
+                <Mail size={16} />
+              </span>
+              <p>{config.company.email}</p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2025 HaruCode. Todos os direitos reservados.
-          </p>
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
+          <p>© 2025 HaruCode. Tecnologia que protege ativos.</p>
+          <a href={config.whatsapp.url} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">
+            Falar com especialista agora
+          </a>
         </div>
       </div>
     </footer>
