@@ -63,7 +63,7 @@ const Contato = () => {
         telefone: formatPhoneForPost(formData.telefone)
       };
 
-      const response = await fetch('https://n8n.harucode.com.br/webhook-test/97675544-b4af-4bd4-adbd-b219e765b194', {
+      const response = await fetch('https://n8n.harucode.com.br/webhook/97675544-b4af-4bd4-adbd-b219e765b194', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataToSend)
