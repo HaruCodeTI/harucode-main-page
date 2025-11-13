@@ -33,6 +33,11 @@ const Contato = () => {
 
     if (!formData.telefone.trim()) {
       newErrors.telefone = 'Telefone é obrigatório';
+    } else {
+      const phoneNumbers = formData.telefone.replace(/\D/g, '');
+      if (phoneNumbers.length < 10 || phoneNumbers.length > 11) {
+        newErrors.telefone = 'Telefone inválido. Digite DDD + número';
+      }
     }
 
     if (!formData.mensagem.trim()) {
@@ -45,7 +50,7 @@ const Contato = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -53,10 +58,15 @@ const Contato = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://n8n.harucode.com.br/webhook-test/a21a126b-a5e6-47b6-b205-26c5efb478c2', {
+      const dataToSend = {
+        ...formData,
+        telefone: formatPhoneForPost(formData.telefone)
+      };
+
+      const response = await fetch('https://n8n.harucode.com.br/webhook-test/97675544-b4af-4bd4-adbd-b219e765b194', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(dataToSend)
       });
 
       if (!response.ok) {
@@ -80,10 +90,38 @@ const Contato = () => {
     }
   };
 
+  // Função para aplicar máscara de telefone brasileiro
+  const formatPhoneInput = (value: string): string => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+
+    // Aplica a máscara conforme o usuário digita
+    if (numbers.length <= 2) {
+      return numbers;
+    } else if (numbers.length <= 3) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+    } else if (numbers.length <= 7) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 3)} ${numbers.slice(3)}`;
+    } else {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 3)} ${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`;
+    }
+  };
+
+  // Função para formatar telefone para envio (apenas números: 5567999999999)
+  const formatPhoneForPost = (value: string): string => {
+    const numbers = value.replace(/\D/g, '');
+    // Adiciona o código do país +55 apenas com números
+    return `55${numbers}`;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
+
+    // Aplica a máscara se for o campo de telefone
+    const newValue = name === 'telefone' ? formatPhoneInput(value) : value;
+
+    setFormData(prev => ({ ...prev, [name]: newValue }));
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
