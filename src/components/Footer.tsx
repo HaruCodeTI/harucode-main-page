@@ -4,85 +4,64 @@ import { config } from '../lib/config';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 bg-black/90 text-white/60">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.35fr_1fr_1fr]">
-          <div className="space-y-6">
-            <Link to="/" className="inline-flex items-center gap-3">
-              <img
-                src="/10.svg"
-                alt="HaruCode Logo"
-                className="h-12 w-auto drop-shadow-[0_0_22px_rgba(124,58,237,0.45)]"
-              />
-              <span className="text-sm font-semibold uppercase tracking-[0.35em] text-white/50">HaruCode</span>
+    <footer className="border-t border-white/[0.06]">
+      <div className="mx-auto max-w-[1120px] px-6 py-14">
+        <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
+          <div className="space-y-4">
+            <Link to="/" className="inline-flex items-center gap-2">
+              <img src="/10.svg" alt="HaruCode" className="h-7 w-auto" />
+              <span className="text-[13px] font-semibold uppercase tracking-[0.12em] text-white/40">HaruCode</span>
             </Link>
-            <p className="max-w-md text-sm leading-relaxed text-white/55">
+            <p className="max-w-sm text-sm leading-relaxed text-white/40">
               Construímos produtos, integrações e IA que entregam previsibilidade para operações complexas.
-              Exploramos tecnologia como vantagem competitiva.
             </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="https://instagram.com/harucode.ti"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-white/30 hover:text-white"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="https://linkedin.com/company/haru-code"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/50 transition hover:border-white/30 hover:text-white"
-              >
-                <Linkedin size={18} />
-              </a>
+            <div className="flex items-center gap-3">
+              {[
+                { href: 'https://instagram.com/harucode.ti', icon: <Instagram size={15} /> },
+                { href: 'https://linkedin.com/company/haru-code', icon: <Linkedin size={15} /> },
+              ].map((s) => (
+                <a
+                  key={s.href}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.06] text-white/35 transition-colors hover:border-white/[0.12] hover:text-white/70"
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-white/40">Mapa</p>
-            <nav className="mt-6 flex flex-col gap-3 text-sm text-white/60">
-              <Link to="/" className="transition hover:text-white">Início</Link>
-              <a href="/#expertise" className="transition hover:text-white">
-                Expertise
-              </a>
-              <a href="/#cases" className="transition hover:text-white">
-                Casos
-              </a>
-              <Link to="/contato" className="transition hover:text-white">
-                Contato
-              </Link>
+            <p className="text-[13px] font-medium uppercase tracking-[0.04em] text-white/30">Mapa</p>
+            <nav className="mt-4 flex flex-col gap-2.5 text-sm text-white/45">
+              <Link to="/" className="transition-colors hover:text-white/80">Início</Link>
+              <a href="/#expertise" className="transition-colors hover:text-white/80">Expertise</a>
+              <a href="/#cases" className="transition-colors hover:text-white/80">Casos</a>
+              <Link to="/contato" className="transition-colors hover:text-white/80">Contato</Link>
             </nav>
           </div>
 
-          <div className="space-y-4 text-sm text-white/60">
-            <p className="text-xs uppercase tracking-[0.35em] text-white/40">Contato</p>
-            <div className="flex items-start gap-3">
-              <span className="mt-1 text-primary">
-                <MapPin size={16} />
-              </span>
-              <p>Campo Grande · MS · Brasil</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="mt-1 text-primary">
-                <Phone size={16} />
-              </span>
-              <p>{config.whatsapp.formatted}</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="mt-1 text-primary">
-                <Mail size={16} />
-              </span>
-              <p>{config.company.email}</p>
-            </div>
+          <div className="space-y-3 text-sm text-white/45">
+            <p className="text-[13px] font-medium uppercase tracking-[0.04em] text-white/30">Contato</p>
+            {[
+              { icon: <MapPin size={14} />, text: 'Campo Grande · MS · Brasil' },
+              { icon: <Phone size={14} />, text: config.whatsapp.formatted },
+              { icon: <Mail size={14} />, text: config.company.email },
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-2.5">
+                <span className="text-primary/70">{item.icon}</span>
+                <p>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
-          <p>© 2025 HaruCode. Tecnologia que protege ativos.</p>
-          <a href={config.whatsapp.url} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">
-            Falar com especialista agora
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.06] pt-8 text-[13px] text-white/25 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} HaruCode. Tecnologia que protege ativos.</p>
+          <a href={config.whatsapp.url} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white/50">
+            Falar com especialista
           </a>
         </div>
       </div>

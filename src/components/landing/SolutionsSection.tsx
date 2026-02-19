@@ -1,101 +1,84 @@
 import { BrainCircuit, Code2, Layers3, Workflow } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { type ReactNode } from 'react';
 
-const solutions = [
+interface Solution {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+const solutions: Solution[] = [
   {
-    icon: <Workflow size={24} />,
+    icon: <Workflow size={20} />,
     title: 'Automação Operacional',
-    description:
-      'Mapeamos processos críticos e conectamos sistemas para eliminar gargalos e retrabalho.',
-    tags: ['Integrações', 'RPA', 'Governança']
+    description: 'Mapeamos processos críticos e conectamos sistemas para eliminar gargalos e retrabalho.',
+    tags: ['Integrações', 'RPA', 'Governança'],
   },
   {
-    icon: <Code2 size={24} />,
+    icon: <Code2 size={20} />,
     title: 'Produtos Digitais Escaláveis',
-    description:
-      'Aplicações web com arquitetura modular, prontas para crescer com o negócio e integrar times.',
-    tags: ['Design System', 'Micro Serviços', 'Analytics']
+    description: 'Aplicações web com arquitetura modular, prontas para crescer com o negócio e integrar times.',
+    tags: ['Design System', 'Micro Serviços', 'Analytics'],
   },
   {
-    icon: <BrainCircuit size={24} />,
+    icon: <BrainCircuit size={20} />,
     title: 'IA Aplicada a Resultados',
-    description:
-      'Modelos preditivos para leads, estoques e operações financeiras com monitoramento contínuo.',
-    tags: ['Machine Learning', 'Data Ops', 'Dashboards']
+    description: 'Modelos preditivos para leads, estoques e operações financeiras com monitoramento contínuo.',
+    tags: ['Machine Learning', 'Data Ops', 'Dashboards'],
   },
   {
-    icon: <Layers3 size={24} />,
+    icon: <Layers3 size={20} />,
     title: 'Sites & Portais Institucionais',
-    description:
-      'Experiências digitais com gestão de conteúdo, performance e integrações nativas a marketing e CRM.',
-    tags: ['CMS', 'SEO', 'Automação de leads']
-  }
+    description: 'Experiências digitais com gestão de conteúdo, performance e integrações nativas a marketing e CRM.',
+    tags: ['CMS', 'SEO', 'Automação de leads'],
+  },
 ];
 
 const SolutionsSection = () => {
   return (
-    <section id="expertise" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_-10%,rgba(124,58,237,0.28),transparent_55%)]" />
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 py-24">
+    <section id="expertise" className="relative px-6 py-24 lg:py-32">
+      <div className="mx-auto max-w-[1120px]">
         <motion.div
-          className="max-w-3xl space-y-4"
-          initial={{ opacity: 0, y: 30 }}
+          className="max-w-2xl space-y-4"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.5 }}
         >
-          <p className="text-xs uppercase tracking-[0.4em] text-white/50">Expertise transversal</p>
-          <h2 className="text-balance text-4xl font-semibold text-white sm:text-5xl">
-            Tecnologia como escudo estratégico para o seu crescimento.
-          </h2>
-          <p className="text-lg text-white/60">
-            Selecionamos a squad ideal para cada fase, cuidando de discovery, arquitetura, implementação e Operação
-            Assistida. Conectamos pessoas, dados e finanças com precisão.
+          <p className="section-label">Expertise transversal</p>
+          <h2>Tecnologia como escudo estratégico para o seu crescimento.</h2>
+          <p className="text-base text-white/55">
+            Selecionamos a squad ideal para cada fase — discovery, arquitetura, implementação e operação assistida.
+            Conectamos pessoas, dados e finanças com precisão.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid gap-6 sm:grid-cols-2"
+          className="mt-12 grid gap-4 sm:grid-cols-2"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.18
-              }
-            }
-          }}
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
         >
-          {solutions.map((solution) => (
+          {solutions.map((s) => (
             <motion.article
-              key={solution.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-2xl transition hover:border-primary/40 hover:bg-white/10"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 }
-              }}
-              whileHover={{ y: -6, transition: { duration: 0.4 } }}
+              key={s.title}
+              className="card-surface card-surface-glow"
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
             >
-              <motion.span
-                className="absolute inset-0 -z-10 opacity-0 transition group-hover:opacity-100"
-                style={{
-                  background:
-                    'radial-gradient(circle at top, rgba(124,58,237,0.35), transparent 65%)'
-                }}
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-              />
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/40 text-primary">
-                {solution.icon}
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                {s.icon}
               </div>
-              <h3 className="mt-6 text-2xl font-semibold text-white">{solution.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/60">{solution.description}</p>
-              <div className="mt-6 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.3em] text-white/40">
-                {solution.tags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/10 px-3 py-1">
+              <h3 className="mt-5">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/50">{s.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {s.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md border border-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-white/35"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -109,4 +92,3 @@ const SolutionsSection = () => {
 };
 
 export default SolutionsSection;
-

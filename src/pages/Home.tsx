@@ -5,7 +5,6 @@ import HeroSection from '@/components/landing/HeroSection';
 import SolutionsSection from '@/components/landing/SolutionsSection';
 import CaseShowcase from '@/components/landing/CaseShowcase';
 import ProcessSection from '@/components/landing/ProcessSection';
-import BrandsSection from '@/components/landing/BrandsSection';
 import FinalCTA from '@/components/landing/FinalCTA';
 import { useEffect } from 'react';
 
@@ -20,12 +19,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main className="pt-16">
         <HeroSection />
         <SolutionsSection />
         <CaseShowcase />
         <ProcessSection />
-
         <FinalCTA />
       </main>
       <Footer />
