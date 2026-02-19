@@ -7,10 +7,10 @@ const WhatsAppButton = () => {
       href={config.whatsapp.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-float"
       aria-label="Falar no WhatsApp"
+      className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105"
     >
-      <MessageCircle size={24} />
+      <MessageCircle size={20} />
     </a>
   );
 };

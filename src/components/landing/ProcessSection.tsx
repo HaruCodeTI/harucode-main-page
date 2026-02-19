@@ -1,53 +1,83 @@
+import { motion } from 'framer-motion';
+
 const steps = [
   {
-    stage: '01',
+    number: '01',
     title: 'Imersão & Blueprint',
-    body: 'Entrevistas, mapas de processos e arquitetura alvo. Em dias, entregamos plano com quick wins e fases.'
+    body: 'Entrevistas, mapas de processos e arquitetura alvo. Em dias, entregamos plano com quick wins e fases.',
   },
   {
-    stage: '02',
+    number: '02',
     title: 'Entrega Modular',
-    body: 'Sprints com metas claras, integrações contínuas e demos semanais. Ajustamos rota com dados reais.'
+    body: 'Sprints com metas claras, integrações contínuas e demos semanais. Ajustamos rota com dados reais.',
   },
   {
-    stage: '03',
+    number: '03',
     title: 'Operação Assistida',
-    body: 'Monitoramento, evolução guiada por métricas e squad dedicada nas primeiras semanas pós-lançamento.'
-  }
+    body: 'Monitoramento, evolução guiada por métricas e squad dedicada nas primeiras semanas pós-lançamento.',
+  },
 ];
 
 const ProcessSection = () => {
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_50%_-20%,rgba(124,58,237,0.25),rgba(10,12,32,0.95))] px-6 py-24">
-      <div className="absolute inset-0">
-        <div className="absolute left-0 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-light/20 blur-3xl" />
-        <div className="absolute right-10 top-0 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
-      </div>
-      <div className="relative mx-auto max-w-6xl">
-        <div className="max-w-3xl space-y-4 text-white">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">Nosso processo</p>
-          <h2 className="text-4xl font-semibold sm:text-5xl">Um fluxo desenhado para reduzir risco e acelerar valor.</h2>
-          <p className="text-lg text-white/65">
+    <section className="px-6 py-24 lg:py-32">
+      <div className="mx-auto max-w-[1120px]">
+        <motion.div
+          className="max-w-2xl space-y-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="section-label">Nosso processo</p>
+          <h2>Um fluxo desenhado para reduzir risco e acelerar valor.</h2>
+          <p className="text-base text-white/55">
             Combinamos disciplina de produto, engenharia e operações. Você acompanha tudo com transparência.
           </p>
+        </motion.div>
+
+        <div className="relative mt-12 lg:hidden">
+          <div className="absolute bottom-0 left-[18px] top-0 w-px bg-white/[0.06]" />
+          <div className="space-y-4">
+            {steps.map((step) => (
+              <motion.div
+                key={`mobile-${step.number}`}
+                className="card-surface relative pl-9"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <span className="absolute left-3 top-8 h-3 w-3 rounded-full border border-primary bg-background" />
+                <span className="font-mono text-sm font-semibold text-primary">{step.number}</span>
+                <h3 className="mt-3">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/50">{step.body}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <motion.div
+          className="mt-12 hidden gap-4 lg:grid lg:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+        >
           {steps.map((step) => (
-            <div
-              key={step.stage}
-              className="rounded-3xl border border-white/5 bg-white/5 p-8 backdrop-blur-2xl transition hover:border-primary/40 hover:bg-white/10"
+            <motion.div
+              key={step.number}
+              className="card-surface"
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
             >
-              <span className="text-xs uppercase tracking-[0.35em] text-white/40">{step.stage}</span>
-              <h3 className="mt-4 text-2xl font-semibold text-white">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/60">{step.body}</p>
-            </div>
+              <span className="font-mono text-sm font-semibold text-primary">{step.number}</span>
+              <h3 className="mt-3">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-white/50">{step.body}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
 export default ProcessSection;
-
